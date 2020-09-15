@@ -115,7 +115,10 @@ export default {
                 return
             }
             axios.post('https://innoscripta-test.firebaseio.com/orders.json' + '?auth=' + state.idToken, orderData)
-                .then(() => dispatch('fetchUser'))
+                .then(() => {
+                    router.push('/products')
+                    dispatch('fetchUser')
+                })
                 .catch(error => console.log(error))
         },
         autoLogin({
